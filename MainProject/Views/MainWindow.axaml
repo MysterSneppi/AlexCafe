@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:MainProject.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="MainProject.Views.MainWindow"
+        Icon="/Assets/logo.ico"
+        Title="Vivaldi Main"
+		WindowState="Maximized">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Grid Background="#F5F6FA">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.2*"/>
+			<ColumnDefinition Width="0.8*"/>
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="0.1*"/>
+			<RowDefinition Height="0.9*"/>
+			
+		</Grid.RowDefinitions>
+		
+		
+		<Border Grid.Column="0" Grid.Row="1" Background="#FFFFFF" />
+		<Border Grid.ColumnSpan="2" Grid.Row="0" Background="#FFFFFF"/>
+		
+		
+	</Grid>
+
+</Window>

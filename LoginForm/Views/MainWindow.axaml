@@ -1,0 +1,115 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LoginForm.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="1000" Height="600"
+        x:Class="LoginForm.Views.MainWindow"
+        Icon="/Assets/logo.ico"
+        Title="Vivaldi Login"
+		WindowStartupLocation="CenterScreen"
+		ShowInTaskbar="True"	
+		CanResize="False"
+		>
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+	<Window.Background >
+		<ImageBrush Source="/Resources/Images/background.jpg" 
+					BitmapInterpolationMode="HighQuality"
+					AlignmentX="Right" AlignmentY="Bottom" Stretch="Uniform"/>		
+	</Window.Background>
+
+
+	<Window.Resources>
+		<!--Font-->
+		<FontFamily x:Key="Poppins">/Resources/Fonts/PoppinsRegular.ttf#Poppins</FontFamily>		
+	</Window.Resources>
+
+	<Window.Styles>				
+		<Style Selector="TextBox.txtBox">			
+			<Setter Property="FontFamily" Value="{DynamicResource Poppins}"/>
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Margin" Value="15"/>
+			<Setter Property="BorderThickness" Value="0,0,0,1"/>
+			<Setter Property="CornerRadius" Value="0"/>										
+		</Style>
+		
+		<Style Selector="TextBox.txtBox:focus /template/ Border#PART_BorderElement">
+			<Setter Property="BorderThickness" Value="0,0,0,2"/>
+			<Setter Property="Background" Value="Transparent"/>			
+		</Style>
+
+		<Style Selector="TextBox.txtBox:pointerover /template/ Border#PART_BorderElement">			
+			<Setter Property="Background" Value="Transparent"/>			
+		</Style>				
+	</Window.Styles>
+	
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.2*"/>
+			<ColumnDefinition Width="0.6*"/>
+			<ColumnDefinition Width="0.2*"/>
+		</Grid.ColumnDefinitions>
+
+		<!--Form-->
+		<Border Grid.Column="1" 
+				HorizontalAlignment="Center" 
+				VerticalAlignment="Bottom" 				 
+				Width="360"
+				Height="400"
+				Margin="20"
+				CornerRadius="30">
+
+			<Border.Background>
+				<LinearGradientBrush StartPoint="50%,0%" EndPoint="50%,100%" Opacity="70">
+					<GradientStop Offset="0.0" Color="Transparent"/>
+					<GradientStop Offset="1.0" Color="#FFFCFC"/>					
+				</LinearGradientBrush>
+			</Border.Background>
+
+			<DockPanel HorizontalAlignment="Center" LastChildFill="True">
+				<TextBlock DockPanel.Dock="Top"
+						   Text="Welcome"
+						   FontSize="24"
+						   FontFamily="{DynamicResource Poppins}"
+						   HorizontalAlignment="Center"/>
+
+				<Button DockPanel.Dock="Bottom"
+						Width="200"
+						Height="43"
+						Margin="20"
+						CornerRadius="30"
+						Content="Login"
+						HorizontalContentAlignment="Center"
+						VerticalContentAlignment="Center"
+						FontFamily="{DynamicResource Poppins}"
+						FontSize="16"
+						x:Name="loginButton"
+						Command="{Binding Login}">
+				</Button>
+
+				<StackPanel DockPanel.Dock="Top">
+					
+					<TextBox Watermark="Login"
+							 Classes="txtBox"
+							 Text="{Binding LoginBox}"/>
+					<TextBox Watermark="Password"
+							 PasswordChar="*"
+							 Classes="txtBox"
+							 Text="{Binding PasswordBox}">													
+					</TextBox>
+					
+					<TextBlock HorizontalAlignment="Center" 
+							   Text="{Binding IncorrectPLText}"
+							   Margin="0,40,0,0"
+							   Foreground="Red"
+							   IsVisible="{Binding IncorrectPL}"/>
+					
+				</StackPanel>
+			</DockPanel>			
+		</Border>		
+	</Grid>
+</Window>
