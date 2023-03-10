@@ -1,0 +1,1 @@
+﻿{"MethodOfpayment":false,"DepositedSum":200.0,"TimeOfPurchase":"12:00","ListOfProducts":[{"NameProduct":"Product0","Price":100.0,"Quantity":0},{"NameProduct":"Product1","Price":101.0,"Quantity":1},{"NameProduct":"Product2","Price":102.0,"Quantity":2},{"NameProduct":"Product3","Price":103.0,"Quantity":3},{"NameProduct":"Product4","Price":104.0,"Quantity":4}]}
