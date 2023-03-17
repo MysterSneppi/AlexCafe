@@ -1,0 +1,30 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+	
+
+
+
+	<Style Selector="Button">
+		<Setter Property="Margin" Value="20"/>
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="FontFamily" Value="{DynamicResource Poppins}"/>
+		
+	</Style>
+
+	<Style Selector="Button.OrderButtonStyle">
+		<Setter Property="Background" Value="#FF2C2C"/>
+		<Setter Property="Foreground" Value="White"/>
+		<Setter Property="FontSize" Value="15"/>
+		<Setter Property="CornerRadius" Value="20"/>
+	</Style>
+	
+	<Style Selector="Button.MenuButtonStyle">
+		<Setter Property="Background" Value="Green"/>
+		
+		
+		
+	</Style>
+	
+</Styles>

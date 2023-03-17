@@ -16,7 +16,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-	<Grid Background="#F5F6FA">
+	<Grid Background="#F5F6FA" Margin="0">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0.2*"/>
 			<ColumnDefinition Width="0.8*"/>
@@ -32,6 +32,28 @@
 		<Border Grid.Column="0" Grid.Row="1" Background="#FFFFFF" />
 		<Border Grid.ColumnSpan="2" Grid.Row="0" Background="#FFFFFF"/>
 
+
+
+		<DockPanel Grid.Row="1"
+				   Grid.Column="0">
+			<Grid DockPanel.Dock="Left">
+				
+				<StackPanel Orientation="Vertical">
+
+					
+					<Button Classes="OrderButtonStyle" 
+							Content="Замовлення" />
+					
+					<Button Classes="MenuButtonStyle"/>
+					<Button/>
+					<Button/>
+				</StackPanel>
+			</Grid>
+			
+		</DockPanel>
+		
+		
+		
 		<Border Grid.Row="1" Grid.Column="1" >
 
 			<Grid Margin="20">
