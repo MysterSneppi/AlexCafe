@@ -2,7 +2,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:MainProject.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:view="using:MainProject.Views"
+        xmlns:view="using:MainProject.Views"		
+		xmlns:skia="clr-namespace:Avalonia.Skia;assembly=Avalonia.Skia"        
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="900"
         x:Class="MainProject.Views.MainWindow"
@@ -12,7 +13,7 @@
 		CanResize="false"
 		>
 
-    <Design.DataContext>
+			<Design.DataContext>
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
@@ -33,27 +34,105 @@
 		<Border Grid.ColumnSpan="2" Grid.Row="0" Background="#FFFFFF"/>
 
 
+		<!--TopMenu-->
 
-		<DockPanel Grid.Row="1"
-				   Grid.Column="0">
-			<Grid DockPanel.Dock="Left">
+		<DockPanel Grid.Column="1"
+				   Grid.Row="0"
+				   LastChildFill="False">
+			
+			<TextBlock Text="{Binding ElementName=Menu,Path=SelectedItem.Header}"
+					   VerticalAlignment="Center"					   
+					   Margin="20,0,0,0"
+					   DockPanel.Dock="Left"
+					   FontSize="25"
+					   FontFamily="{DynamicResource Poppins}"
+					   FontWeight="Bold"/>
+
+			<!--Account-->
+			<StackPanel Orientation="Horizontal"
+						DockPanel.Dock="Right"
+						Margin="0,0,50,0">
 				
-				<StackPanel Orientation="Vertical">
-
-					
-					<Button Classes="OrderButtonStyle" 
-							Content="Замовлення" />
-					
-					<Button Classes="MenuButtonStyle"/>
-					<Button/>
-					<Button/>
-				</StackPanel>
-			</Grid>
+				<Image Source="/Assets/Images/man.png"
+					   RenderOptions.BitmapInterpolationMode="HighQuality"
+					   Width="50"
+					   Height="50"
+					   Margin="0,0,10,0"
+					   VerticalAlignment="Center"/>
+				
+				<TextBlock Text="Костя"
+						   FontSize="20"
+						   FontFamily="{DynamicResource Poppins}"
+						   VerticalAlignment="Center"/>
+			</StackPanel>
 			
 		</DockPanel>
 		
 		
+		<!--Logo-->
+		<StackPanel Grid.Column="0"
+					Grid.Row="0"
+					Orientation="Horizontal">
+			
+			
+			<Image Source="/Assets/Images/logoApp.png"
+				   Margin="25,0,10,0"
+				   Width="50"
+				   Height="50"
+				   HorizontalAlignment="Center"
+				   VerticalAlignment="Center"
+				   RenderOptions.BitmapInterpolationMode="HighQuality"
+				   />
+			
+			<TextBlock Text="Vivaldi"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   FontSize="20"
+					   FontFamily="{DynamicResource Poppins}"/>
+			
+		</StackPanel>
 		
+		<!--Menu-->
+		<DockPanel Grid.Row="1"
+				   Grid.Column="0">
+			
+			<Grid DockPanel.Dock="Left">
+				
+				<StackPanel Orientation="Vertical">
+
+					<Button Classes="OrderButtonStyle">
+						
+						<DockPanel LastChildFill="False"
+								   Margin="20">
+							
+							<TextBlock DockPanel.Dock="Left"
+									   Text="Замовлення"
+									  
+									   HorizontalAlignment="Center"
+									   VerticalAlignment="Center"/>
+							
+							<Image Source="{SvgImage /Assets/Images/plus.svg}"
+								   Width="50"
+								   Height="50"
+								   DockPanel.Dock="Right"
+								   >																
+							</Image>							
+						</DockPanel>
+					</Button>
+					<TabControl TabStripPlacement="Left" 
+								Margin="20,0,0,0"
+								Name="Menu">
+						<TabItem Header="Головна"/>
+						<TabItem Header="Налаштування"/>
+						<TabItem Header="Статистика"/>
+						<TabItem Header="Замовлення"/>
+					</TabControl>										
+				</StackPanel>
+			</Grid>
+			
+		</DockPanel>
+
+		<!--Body-->		
 		<Border Grid.Row="1" Grid.Column="1" >
 
 			<Grid Margin="20">
@@ -73,21 +152,32 @@
 				</Grid.ColumnDefinitions>
 
 				<Border Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul/>
+					<view:MiniDataModul 
+										NameBlock="Виручка"
+										NumberBlock="9321"/>
 				</Border>
 				<Border Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul/>
+					<view:MiniDataModul ImagePath="/Assets/Images/humans.png"
+										NameBlock="Покупці"
+										NumberBlock="234"/>
 				</Border>
 				<Border Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul/>
+					<view:MiniDataModul ImagePath="/Assets/Images/order.png"
+										NameBlock="Середній чек"
+										NumberBlock="150"/>
 				</Border>
 				<Border Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-					<view:MiniDataModul/>
+					<view:MiniDataModul  />
 				</Border>
 			</Grid>
 			
 			
 		</Border>
+		
+		
+		
+		
+		
 	</Grid>
 
 </Window>

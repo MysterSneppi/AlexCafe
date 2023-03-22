@@ -4,10 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="MainProject.Views.MiniDataModul">
+	
 	<Border CornerRadius="20"
-			Background="Aqua" 
-			>
+			Background="White">
+		
 		<Grid>
+			
 			<Grid.RowDefinitions>
 				<RowDefinition Height="0.5*"/>
 				<RowDefinition Height="0.5*"/>
@@ -18,8 +20,29 @@
 				<ColumnDefinition Width="0.5*"/>
 			</Grid.ColumnDefinitions>
 			
-			<Image HorizontalAlignment="Center" VerticalAlignment="Center" Grid.RowSpan="1" Source="/Assets/Images/money.png"/>
-			
+			<Image HorizontalAlignment="Center"
+				   VerticalAlignment="Center"
+				   Grid.RowSpan="2"				   
+				   Width="100"
+				   Height="100"
+				   Source="{Binding ImagePath}"				   
+				   RenderOptions.BitmapInterpolationMode="HighQuality"/>
+
+			<StackPanel Orientation="Vertical"
+						Grid.RowSpan="2"
+						Grid.Column="1"
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center">
+				
+				<TextBlock Text="{Binding NumberBlock}"
+						   FontSize="20"
+						   Margin="0,0,0,10"
+						   Foreground="Black"
+						   FontWeight="Bold"/>
+				<TextBlock Text="{Binding NameBlock}"
+						   FontSize="18"
+						   Foreground="#BCBDC7"/>
+			</StackPanel>
 			
 		</Grid>
 	</Border>
