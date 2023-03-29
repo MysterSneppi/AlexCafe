@@ -9,9 +9,7 @@ namespace MainProject.Views
     public partial class MiniDataModul : UserControl
     {
 
-        public static readonly StyledProperty<string> ImagePathProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(ImagePath));
-
-        
+        public static readonly StyledProperty<string> ImagePathProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(ImagePath));  
         public string ImagePath 
         {
             get { return GetValue(ImagePathProperty); }
@@ -33,8 +31,6 @@ namespace MainProject.Views
             get { return GetValue(NumberBlockProperty); }
             set { SetValue(NumberBlockProperty, value); }
         }
-
-        
 
         public MiniDataModul()
         {
