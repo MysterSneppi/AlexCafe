@@ -43,7 +43,7 @@
 						   FontSize="18"
 						   Foreground="#BCBDC7"/>
 			</StackPanel>
-			
+		
 		</Grid>
 	</Border>
 </UserControl>

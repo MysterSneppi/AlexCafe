@@ -12,7 +12,8 @@
 	</Application.Resources>
     <Application.Styles>
         <FluentTheme Mode="Light"/>
+		<StyleInclude Source="avares://OxyPlot.Avalonia/Themes/Default.xaml" />
 		<StyleInclude Source="/Assets/Styles.axaml"/>
-		<StyleInclude Source="resm:OxyPlot.Avalonia.Themes.Default.xaml?assembly=OxyPlot.Avalonia"/>
+		
     </Application.Styles>
 </Application>

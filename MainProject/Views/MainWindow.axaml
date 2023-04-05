@@ -1,10 +1,10 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="using:MainProject.ViewModels"
 		xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:view="using:MainProject.Views"		
-		xmlns:skia="clr-namespace:Avalonia.Skia;assembly=Avalonia.Skia"        
+		 
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="900"
         x:Class="MainProject.Views.MainWindow"
@@ -29,11 +29,10 @@
 			<RowDefinition Height="0.9*"/>
 			
 		</Grid.RowDefinitions>
-		
+	
 		
 		<Border Grid.Column="0" Grid.Row="1" Background="#FFFFFF" />
 		<Border Grid.ColumnSpan="2" Grid.Row="0" Background="#FFFFFF"/>
-
 
 		<!--TopMenu-->
 
@@ -52,7 +51,8 @@
 			<!--Account-->
 			<StackPanel Orientation="Horizontal"
 						DockPanel.Dock="Right"
-						Margin="0,0,50,0">
+						Margin="0,0,50,0"
+						>
 				
 				<Image Source="/Assets/Images/man.png"
 					   RenderOptions.BitmapInterpolationMode="HighQuality"
@@ -73,7 +73,8 @@
 		<!--Logo-->
 		<StackPanel Grid.Column="0"
 					Grid.Row="0"
-					Orientation="Horizontal">
+					Orientation="Horizontal"
+			>
 			
 			
 			<Image Source="/Assets/Images/logoApp.png"
@@ -169,11 +170,48 @@
 										NumberBlock="150"/>
 				</Border>
 				<Border Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,0,0">
-					<view:MiniDataModul  />				
+					<DockPanel>
+						<!---->
+					
+					</DockPanel>
 				</Border>
 
 				
+				<!--Средний чек-->
+				<Grid Grid.Row="1" Grid.ColumnSpan="3" >
+					<Border  Margin="0,20,20,20"
+						     CornerRadius="20"
+							 Background="White"
+							 >
+						<oxy:PlotView Model="{Binding MyPlotModel}"
+								 Margin="0,10,0,10"/>
+					</Border>
+					
+				</Grid>
+				<!--Поток клиентов-->
+				<Grid Grid.Row="2" Grid.ColumnSpan="2" >
+					<Border  
+						     CornerRadius="20"
+							 Background="White"
+							 >
+						<oxy:PlotView Model="{Binding MyPlotModel}"
+								 Margin="0,10,0,10"/>
+					</Border>
 
+				</Grid>
+				<!--Карта/Наличка-->
+				<!--Круговая диаграмма-->
+				<Grid Grid.Row="2" 
+					  Grid.Column="2">
+
+					<Border Margin="20,0,20,0"
+							CornerRadius="20"
+							Background="White">
+						<oxy:PlotView Model="{Binding CircleModel}"
+								 Margin="10"/>
+					</Border>
+					
+				</Grid>
 			</Grid>
 			
 			
@@ -186,3 +224,7 @@
 	</Grid>
 
 </Window>
+
+
+
+
