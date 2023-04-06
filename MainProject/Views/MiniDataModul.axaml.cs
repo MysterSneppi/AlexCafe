@@ -15,7 +15,7 @@ namespace MainProject.Views
             get { return GetValue(ImagePathProperty); }
             set { SetValue(ImagePathProperty,value); }
         }
-
+        
         public static readonly StyledProperty<string> NameBlockProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(NameBlock));
 
         public string NameBlock

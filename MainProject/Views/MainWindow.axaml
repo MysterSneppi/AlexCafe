@@ -1,22 +1,19 @@
-<Window xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:MainProject.ViewModels"
-		xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"
+<Window  xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:view="using:MainProject.Views"		
-		 
-		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="using:MainProject.ViewModels"
+		xmlns:svg="clr-namespace:Avalonia.Sk"
+		xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"       
+        xmlns:view="using:MainProject.Views"						
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="900"
         x:Class="MainProject.Views.MainWindow"
         Icon="/Assets/logo.ico"
         Title="Vivaldi Main"
 		WindowState="Maximized"
-		CanResize="false"
-		>
+		CanResize="false">
 
-			<Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
+		
 
 	<Grid Background="#F5F6FA" Margin="0">
 		<Grid.ColumnDefinitions>
@@ -113,140 +110,41 @@
 									   HorizontalAlignment="Center"
 									   VerticalAlignment="Center"/>
 							
-							<Image Source="{SvgImage /Assets/Images/plus.svg}"
-								   Width="50"
-								   Height="50"
+						<TextBlock Text="+" 
+								   FontSize="60"
 								   DockPanel.Dock="Right"
-								   >																
-							</Image>							
+								   HorizontalAlignment="Center"
+								   VerticalAlignment="Center"
+								   Margin="0,0,0,0"
+								   />
+												
 						</DockPanel>
 					</Button>
+					
 					<TabControl TabStripPlacement="Left" 
 								Margin="20,0,0,0"
-								Name="Menu">
-						<TabItem Header="Головна"/>
+								x:Name="Menu">
+						
+						<TabItem Header="Головна">
+							<!--<view:MainPageView/>-->
+						</TabItem>
+						
 						<TabItem Header="Налаштування"/>
 						<TabItem Header="Статистика"/>
-						<TabItem Header="Замовлення"/>
+						
+						<TabItem Header="Замовлення">
+							<view:OrderPageView/>
+						</TabItem>
 					</TabControl>										
 				</StackPanel>
 			</Grid>
 			
 		</DockPanel>
 
-		<!--Body-->		
-		<Border Grid.Row="1" Grid.Column="1" >
 
-			<Grid Margin="20">
-			
-				<Grid.RowDefinitions>
-					<RowDefinition Height="0.2*"/>
-					<RowDefinition Height="0.5*"/>
-					<RowDefinition Height="0.3*"/>
-				</Grid.RowDefinitions>
-
-				<Grid.ColumnDefinitions>
-					
-					<ColumnDefinition />
-					<ColumnDefinition />
-					<ColumnDefinition />
-					<ColumnDefinition />
-					
-				</Grid.ColumnDefinitions>
-
-				<Border Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul 
-										NameBlock="Виручка"
-										NumberBlock="9321"/>
-				</Border>
-				<Border Grid.Column="1" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul ImagePath="/Assets/Images/humans.png"
-										NameBlock="Покупці"
-										NumberBlock="234"/>
-				</Border>
-				<Border Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,20,0">
-					<view:MiniDataModul ImagePath="/Assets/Images/order.png"
-										NameBlock="Середній чек"
-										NumberBlock="150"/>
-				</Border>
-				<Border Grid.Column="3" Grid.Row="0" HorizontalAlignment="Stretch" Margin="0,0,0,0"
-						CornerRadius="20" Background="White">
-					<DockPanel 
-								HorizontalAlignment="Center"
-								VerticalAlignment="Center">
-						<TextBlock DockPanel.Dock="Top"
-								   Text="Робоча зміна"
-								   FontWeight="Bold"
-								   FontSize="20"
-								   FontFamily="{DynamicResource Poppins}"
-								   HorizontalAlignment="Center"
-								   Margin="0,10,0,0"
-								   />
-						<TextBlock DockPanel.Dock="Top"
-								   Text="6.00-18.00"
-								   FontSize="20"
-								   FontFamily="{DynamicResource Poppins}"
-								   HorizontalAlignment="Center"/>
-						<Button DockPanel.Dock="Bottom"
-								Content="Закінчити" 
-								CornerRadius="20"
-								Background="Red"
-								FontFamily="{DynamicResource Poppins}"
-								Margin="10"
-								Width="200"
-								Height="50"
-								HorizontalContentAlignment="Center"
-								VerticalContentAlignment="Center"
-								Foreground="White"
-								FontSize="15"/>
-					</DockPanel>
-					
-				</Border>
-
-				
-				<!--Средний чек-->
-				<Grid Grid.Row="1" Grid.ColumnSpan="3" >
-					<Border  Margin="0,20,20,20"
-						     CornerRadius="20"
-							 Background="White"
-							 >
-						<oxy:PlotView Model="{Binding MyPlotModel}"
-								 Margin="0,10,0,10"/>
-					</Border>
-					
-				</Grid>
-				<!--Поток клиентов-->
-				<Grid Grid.Row="2" Grid.ColumnSpan="2" >
-					<Border  
-						     CornerRadius="20"
-							 Background="White"
-							 >
-						<oxy:PlotView Model="{Binding MyPlotModel}"
-								 Margin="0,10,0,10"/>
-					</Border>
-
-				</Grid>
-				<!--Карта/Наличка-->
-				<!--Круговая диаграмма-->
-				<Grid Grid.Row="2" 
-					  Grid.Column="2">
-
-					<Border Margin="20,0,20,0"
-							CornerRadius="20"
-							Background="White">
-						<oxy:PlotView Model="{Binding CircleModel}"
-								 Margin="10"/>
-					</Border>
-					
-				</Grid>
-			</Grid>
-			
-			
-		</Border>
-		
-		
-		
-		
+		<ContentControl Grid.Row="1" 
+						Grid.Column="1" 
+						Content="{Binding ElementName=Menu, Path=SelectedItem.Content}"/>
 		
 	</Grid>
 
