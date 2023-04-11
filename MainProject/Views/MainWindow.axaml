@@ -1,4 +1,4 @@
-<Window  xmlns="https://github.com/avaloniaui"
+<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,8 +13,11 @@
 		WindowState="Maximized"
 		CanResize="false">
 
-		
-
+	<Window.DataContext>
+		<vm:MainWindowViewModel/>
+	</Window.DataContext>
+	
+	
 	<Grid Background="#F5F6FA" Margin="0">
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="0.2*"/>
@@ -58,7 +61,7 @@
 					   Margin="0,0,10,0"
 					   VerticalAlignment="Center"/>
 				
-				<TextBlock Text="Костя"
+				<TextBlock Text="{Binding TeXt}"
 						   FontSize="20"
 						   FontFamily="{DynamicResource Poppins}"
 						   VerticalAlignment="Center"/>
@@ -66,7 +69,7 @@
 			
 		</DockPanel>
 		
-		
+	
 		<!--Logo-->
 		<StackPanel Grid.Column="0"
 					Grid.Row="0"
@@ -92,59 +95,39 @@
 		</StackPanel>
 		
 		<!--Menu-->
-		<DockPanel Grid.Row="1"
-				   Grid.Column="0">
-			
-			<Grid DockPanel.Dock="Left">
-				
-				<StackPanel Orientation="Vertical">
-
-					<Button Classes="OrderButtonStyle">
-						
-						<DockPanel LastChildFill="False"
-								   Margin="20">
-							
-							<TextBlock DockPanel.Dock="Left"
-									   Text="Замовлення"
-									  
-									   HorizontalAlignment="Center"
-									   VerticalAlignment="Center"/>
-							
-						<TextBlock Text="+" 
-								   FontSize="60"
-								   DockPanel.Dock="Right"
-								   HorizontalAlignment="Center"
-								   VerticalAlignment="Center"
-								   Margin="0,0,0,0"
-								   />
-												
-						</DockPanel>
-					</Button>
+		
 					
 					<TabControl TabStripPlacement="Left" 
 								Margin="20,0,0,0"
-								x:Name="Menu">
-						
-						<TabItem Header="Головна">
-							<!--<view:MainPageView/>-->
+								Name="Menu"
+								Grid.Row="1"
+								Grid.Column="0"
+								Grid.ColumnSpan="2"
+								>
+
+						<TabItem Header="Головна" >
+							<ContentControl  Content="{Binding mainPageView}" Background="#F5F5F5" />
 						</TabItem>
-						
-						<TabItem Header="Налаштування"/>
-						<TabItem Header="Статистика"/>
-						
 						<TabItem Header="Замовлення">
-							<view:OrderPageView/>
+							<ContentControl  Content="{Binding orderPageView}" Background="#F5F5F5" />
 						</TabItem>
+						<TabItem Header="Статистика">
+							<ContentControl  Content="{Binding statisticsPageView}"  Background="#F5F5F5"/>
+						</TabItem>
+						<TabItem Header="Налаштування">
+							<ContentControl  Content="{Binding settingsPageView}" Background="#F5F5F5" />
+						</TabItem>
+						
 					</TabControl>										
-				</StackPanel>
-			</Grid>
+				
+
+		<Grid Grid.Column="1"
+			  Grid.Row="1">
 			
-		</DockPanel>
-
-
-		<ContentControl Grid.Row="1" 
-						Grid.Column="1" 
-						Content="{Binding ElementName=Menu, Path=SelectedItem.Content}"/>
+			
+			
+		</Grid>
+		
 		
 	</Grid>
 
