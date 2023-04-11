@@ -10,7 +10,56 @@
 		<vm:OrderPageViewModel/>
 	</UserControl.DataContext>
 
+	<StackPanel>
+		<ComboBox HorizontalAlignment="Stretch" SelectedIndex="0">
+			<ComboBoxItem>
+				<DockPanel LastChildFill="False">
+					<TextBlock DockPanel.Dock="Left" Text="Order"/>					
+				</DockPanel>
+			</ComboBoxItem>
+			<ComboBoxItem IsHitTestVisible="False">
+				<StackPanel>					
+					<ListBox >						
+						<ListBoxItem IsHitTestVisible="False">1</ListBoxItem>
+						<ListBoxItem IsHitTestVisible="False">2</ListBoxItem>
+						<ListBoxItem IsHitTestVisible="False">3</ListBoxItem>
+						<ListBoxItem IsHitTestVisible="False">4</ListBoxItem>
+					</ListBox>
+				</StackPanel>
+
+			</ComboBoxItem>
+		</ComboBox>
+		<ComboBox>
+			<ComboBoxItem>
+				<StackPanel>
+					<TextBlock Text="Order"/>
+					<ListBox>
+						<ListBoxItem>1</ListBoxItem>
+						<ListBoxItem>2</ListBoxItem>
+						<ListBoxItem>3</ListBoxItem>
+						<ListBoxItem>4</ListBoxItem>
+					</ListBox>
+				</StackPanel>
+
+			</ComboBoxItem>
+		</ComboBox>
+		<ComboBox>
+			<ComboBoxItem>
+				<StackPanel>
+					<TextBlock Text="Order"/>
+					<ListBox>
+						<ListBoxItem>1</ListBoxItem>
+						<ListBoxItem>2</ListBoxItem>
+						<ListBoxItem>3</ListBoxItem>
+						<ListBoxItem>4</ListBoxItem>
+					</ListBox>
+				</StackPanel>
+
+			</ComboBoxItem>
+		</ComboBox>
+	</StackPanel>
 	
+
 	
 	
 	
