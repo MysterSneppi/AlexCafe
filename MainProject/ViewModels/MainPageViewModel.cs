@@ -8,7 +8,7 @@ namespace MainProject.ViewModels
 {
     internal class MainPageViewModel : ViewModelBase
     {
-        public MainPageViewModel() 
+        public MainPageViewModel()
         {
             #region LineDiagram
             // Определение границ оси времени
@@ -31,6 +31,7 @@ namespace MainProject.ViewModels
                 IntervalType = DateTimeIntervalType.Hours,
                 StringFormat = "HH"
             };
+
             var yAxis = new LinearAxis
             {
                 Position = AxisPosition.Left,
@@ -39,8 +40,6 @@ namespace MainProject.ViewModels
                 MajorStep = valueStep
             };
 
-
-            // Создание модели графика
             this.MyPlotModel = new PlotModel { Title = "Середінй чек" };
             this.MyPlotModel.Axes.Add(xAxis);
             this.MyPlotModel.Axes.Add(yAxis);
@@ -61,10 +60,56 @@ namespace MainProject.ViewModels
             series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 17, 0, 0)), 100));
             series.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 18, 0, 0)), 150));
 
+
             // Добавление серии данных в модель графика
+
             this.MyPlotModel.Series.Add(series);
+
             #endregion
 
+
+
+            #region LineDiagram2
+
+            Diagram = new PlotModel { Title = "Відвідуваність" };
+            var xAxis2 = new DateTimeAxis
+            {
+                Position = AxisPosition.Bottom,
+                Minimum = DateTimeAxis.ToDouble(timeMin),
+                Maximum = DateTimeAxis.ToDouble(timeMax),
+                IntervalType = DateTimeIntervalType.Hours,
+                StringFormat = "HH"
+            };
+
+            var yAxis2 = new LinearAxis
+            {
+                Position = AxisPosition.Left,
+                Minimum = 0,
+                Maximum = 50,
+                MajorStep = 10
+            };
+
+            Diagram.Axes.Add(xAxis2);
+            Diagram.Axes.Add(yAxis2);
+
+            var series2 = new LineSeries { Title = "Средний чек" };
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(DateTimeAxis.ToDouble(timeMin)), 0));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 7, 0, 0)), 10));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 8, 0, 0)), 30));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 9, 0, 0)), 22));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 10, 0, 0)), 15));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 11, 0, 0)), 13));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 12, 0, 0)), 16));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 13, 0, 0)), 24));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 14, 0, 0)), 11));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 15, 0, 0)), 15));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 16, 0, 0)), 18));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 17, 0, 0)), 10));
+            series2.Points.Add(new DataPoint(DateTimeAxis.ToDouble(new DateTime(2023, 4, 3, 18, 0, 0)), 8));
+
+            Diagram.Series.Add(series2);
+            #endregion
+            #region Круговая Диаграма
             // Создаем серию данных для круговой диаграммы
             var circleSeries = new PieSeries
             {
@@ -83,21 +128,29 @@ namespace MainProject.ViewModels
             CircleModel.Series.Add(circleSeries);
 
 
-            People = new ObservableCollection<Person>
+            People = new ObservableCollection<TopProduct>
             {
-                new Person { Name = "Alice", Age = 25 },
-                new Person { Name = "Bob", Age = 35 },
-                new Person { Name = "Charlie", Age = 45 }
+                new TopProduct { Name = "Булка з маком", Value = 40 },
+                new TopProduct { Name = "Капучіно", Value = 35 },
+                new TopProduct { Name = "Еспресо", Value = 32 },
+                new TopProduct { Name = "Рістретто", Value = 30 },
+                new TopProduct { Name = "Американо", Value = 26 },
+                new TopProduct { Name = "Допп", Value = 22 },
+                new TopProduct { Name = "Арабіка", Value = 20 },
+                new TopProduct { Name = "Латте", Value = 15 },
+                new TopProduct { Name = "Гібралтар", Value = 7 }
             };
+            #endregion
 
         }
         public PlotModel MyPlotModel { get; private set; }
+        public PlotModel Diagram { get; private set; }
         public PlotModel CircleModel { get; private set; }
-        public ObservableCollection<Person> People { get; set; }
+        public ObservableCollection<TopProduct> People { get; set; }
     }
-    public class Person
+    public class TopProduct
     {
         public string Name { get; set; }
-        public int Age { get; set; }
+        public int Value { get; set; }
     }
 }

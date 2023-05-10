@@ -5,6 +5,10 @@
 	<Style Selector="Image">
 		<Setter Property="RenderOptions.BitmapInterpolationMode" Value="HighQuality"/>
 	</Style>
+
+	<Style Selector="TextBlock">
+		<Setter Property="FontFamily" Value="{DynamicResource Poppins}"/>
+	</Style>
 	
 	<Style Selector="Button">
 		<Setter Property="Margin" Value="20"/>
@@ -26,9 +30,21 @@
 	
 	<Style Selector="Button.MenuButtonStyle">
 		<Setter Property="Background" Value="Green"/>
-		
-		
-		
+	</Style>
+
+
+	<Style Selector="ListBoxItem.ListBoxItemStyle">
+		<Setter Property="IsHitTestVisible" Value="False"/>
+	</Style>
+
+
+	<Style Selector="ComboBox.ComboBoxStyle">
+		<Setter Property="SelectedIndex" Value="0"/>
+		<Setter Property="HorizontalAlignment" Value="Stretch"/>
+		<Setter Property="Margin" Value="10,5,10,5"/>
+		<Setter Property="Background" Value="#FFFFFF"/>
+		<Setter Property="BorderBrush" Value="Transparent"/>
+		<Setter Property="CornerRadius" Value="10"/>		
 	</Style>
 	
 </Styles>

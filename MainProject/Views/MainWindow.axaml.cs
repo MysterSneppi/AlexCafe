@@ -21,7 +21,7 @@ namespace MainProject.Views
             settingsPageView = new SettingsPageView();
             statisticsPageView = new StatisticsPageView();
             orderPageView = new OrderPageView();
-           
+
             this.DataContext = this;
         }
 

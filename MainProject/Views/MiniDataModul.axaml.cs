@@ -1,7 +1,5 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Media.Imaging;
-using System.Reflection;
 
 
 namespace MainProject.Views
@@ -9,13 +7,13 @@ namespace MainProject.Views
     public partial class MiniDataModul : UserControl
     {
 
-        public static readonly StyledProperty<string> ImagePathProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(ImagePath));  
-        public string ImagePath 
+        public static readonly StyledProperty<string> ImagePathProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(ImagePath));
+        public string ImagePath
         {
             get { return GetValue(ImagePathProperty); }
-            set { SetValue(ImagePathProperty,value); }
+            set { SetValue(ImagePathProperty, value); }
         }
-        
+
         public static readonly StyledProperty<string> NameBlockProperty = AvaloniaProperty.Register<MiniDataModul, string>(nameof(NameBlock));
 
         public string NameBlock
@@ -35,7 +33,7 @@ namespace MainProject.Views
         public MiniDataModul()
         {
             InitializeComponent();
-            
+
             this.DataContext = this;
         }
     }

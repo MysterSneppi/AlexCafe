@@ -1,4 +1,3 @@
-using Avalonia.Controls;
 using MainProject.Views;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -19,13 +18,10 @@ namespace MainProject.ViewModels
             mainPageView = new MainPageView();
             settingsPageView = new SettingsPageView();
             statisticsPageView = new StatisticsPageView();
-            orderPageView = new OrderPageView();            
+            orderPageView = new OrderPageView();
         }
 
-     
-
         private object _ñurrentView;
-
         public object CurrentView
         {
             get => _ñurrentView;

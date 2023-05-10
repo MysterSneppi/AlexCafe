@@ -3,15 +3,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="using:MainProject.ViewModels"
-		xmlns:svg="clr-namespace:Avalonia.Sk"
-		xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"       
+        xmlns:oxy="clr-namespace:OxyPlot.Avalonia;assembly=OxyPlot.Avalonia"       
         xmlns:view="using:MainProject.Views"						
         mc:Ignorable="d" d:DesignWidth="1300" d:DesignHeight="900"
         x:Class="MainProject.Views.MainWindow"
         Icon="/Assets/logo.ico"
-        Title="Vivaldi Main"
-		WindowState="Maximized"
-		CanResize="false">
+        Title="Alex Cafe"
+		WindowState="Maximized">
 
 	<Window.DataContext>
 		<vm:MainWindowViewModel/>
@@ -39,14 +37,9 @@
 		<DockPanel Grid.Column="1"
 				   Grid.Row="0"
 				   LastChildFill="False">
+
+		
 			
-			<TextBlock Text="{Binding ElementName=Menu,Path=SelectedItem.Header}"
-					   VerticalAlignment="Center"					   
-					   Margin="20,0,0,0"
-					   DockPanel.Dock="Left"
-					   FontSize="25"
-					   FontFamily="{DynamicResource Poppins}"
-					   FontWeight="Bold"/>
 
 			<!--Account-->
 			<StackPanel Orientation="Horizontal"
@@ -61,7 +54,7 @@
 					   Margin="0,0,10,0"
 					   VerticalAlignment="Center"/>
 				
-				<TextBlock Text="{Binding TeXt}"
+				<TextBlock Text="Кармазін Олексій"
 						   FontSize="20"
 						   FontFamily="{DynamicResource Poppins}"
 						   VerticalAlignment="Center"/>
@@ -86,7 +79,7 @@
 				   RenderOptions.BitmapInterpolationMode="HighQuality"
 				   />
 			
-			<TextBlock Text="Vivaldi"
+			<TextBlock Text="Alex Cafe"
 					   HorizontalAlignment="Center"
 					   VerticalAlignment="Center"
 					   FontSize="20"
@@ -104,14 +97,14 @@
 								Grid.Column="0"
 								Grid.ColumnSpan="2"
 								>
-
+						
 						<TabItem Header="Головна" >
 							<ContentControl  Content="{Binding mainPageView}" Background="#F5F5F5" />
 						</TabItem>
 						<TabItem Header="Замовлення">
 							<ContentControl  Content="{Binding orderPageView}" Background="#F5F5F5" />
 						</TabItem>
-						<TabItem Header="Статистика">
+						<TabItem Header="Статистика" IsEnabled="False">
 							<ContentControl  Content="{Binding statisticsPageView}"  Background="#F5F5F5"/>
 						</TabItem>
 						<TabItem Header="Налаштування">

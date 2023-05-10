@@ -51,14 +51,14 @@ namespace LoginForm.ViewModels
                 }
                 else 
                 {
-                    IncorrectPLText = "Не верный пароль или логин";
+                    IncorrectPLText = "Неправильний логін або пароль";
                     IncorrectPL = true;
                 }
 
             }
             else 
             {
-                IncorrectPLText = "Не все поля заполнены";
+                IncorrectPLText = "Не всі поля заповнені";
                 IncorrectPL = true;
             }
         }

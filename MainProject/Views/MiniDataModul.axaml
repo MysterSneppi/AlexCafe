@@ -4,9 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="MainProject.Views.MiniDataModul">
-	
-	
-	
+
 	<Border CornerRadius="20"
 			Background="White">
 		
@@ -46,6 +44,7 @@
 						   Foreground="#BCBDC7"/>
 			</StackPanel>
 		
+            
 		</Grid>
 	</Border>
 </UserControl>
