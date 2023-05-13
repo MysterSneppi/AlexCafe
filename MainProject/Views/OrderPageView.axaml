@@ -14,16 +14,14 @@
 		<ComboBox Classes="ComboBoxStyle">
 			<ComboBoxItem>
 				<DockPanel LastChildFill="False">
-					<TextBlock DockPanel.Dock="Left" Text="Order"/>					
+					<TextBlock DockPanel.Dock="Left" Text="Замовлення 1"/>					
 				</DockPanel>
 			</ComboBoxItem>
 			<ComboBoxItem IsHitTestVisible="False">
 				<StackPanel>					
 					<ListBox >						
-						<ListBoxItem Classes="ListBoxItemStyle">1</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">2</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">3</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">4</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Чіабата</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Паніні</ListBoxItem>						
 					</ListBox>
 				</StackPanel>
 
@@ -33,16 +31,16 @@
 		<ComboBox Classes="ComboBoxStyle">
 			<ComboBoxItem>
 				<DockPanel LastChildFill="False">
-					<TextBlock DockPanel.Dock="Left" Text="Order"/>
+					<TextBlock DockPanel.Dock="Left" Text="Замовлення 2"/>
 				</DockPanel>
 			</ComboBoxItem>
 			<ComboBoxItem IsHitTestVisible="False">
 				<StackPanel>
 					<ListBox >
-						<ListBoxItem Classes="ListBoxItemStyle">1</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">2</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">3</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">4</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Еспресо</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Булка з маком</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Булка з маком</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Латте</ListBoxItem>
 					</ListBox>
 				</StackPanel>
 
@@ -51,16 +49,16 @@
 		<ComboBox Classes="ComboBoxStyle">
 			<ComboBoxItem>
 				<DockPanel LastChildFill="False">
-					<TextBlock DockPanel.Dock="Left" Text="Order"/>
+					<TextBlock DockPanel.Dock="Left" Text="Замовлення 3"/>
 				</DockPanel>
 			</ComboBoxItem>
 			<ComboBoxItem IsHitTestVisible="False">
 				<StackPanel>
 					<ListBox >
-						<ListBoxItem Classes="ListBoxItemStyle">1</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">2</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">3</ListBoxItem>
-						<ListBoxItem Classes="ListBoxItemStyle">4</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Допіо</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Допіо</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Круасан</ListBoxItem>
+						<ListBoxItem Classes="ListBoxItemStyle">Круасан</ListBoxItem>
 					</ListBox>
 				</StackPanel>
 
